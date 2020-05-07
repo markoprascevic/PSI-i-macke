@@ -1,6 +1,8 @@
 <?php namespace App\Controllers;
 use App\Models\SlikeModel;
 use App\Models\VestiModel;
+use App\Models\LFModel;
+
 class Gost extends BaseController
 {
      protected function prikaz($page,$data, $data2){
@@ -20,9 +22,11 @@ class Gost extends BaseController
     }
 
     public function lf(){
+        $lfModel=new LFModel();
+        $oglasi=$lfModel->findAll();
         $slikaModel=new SlikeModel();
         $slike=$slikaModel->findAll();
-        $this->prikaz('Views/stranice/Lost&Found.php', ['slike'=>$slike], []);
+        $this->prikaz('Views/stranice/Lost&Found.php', ['slike'=>$slike], ['oglasi'=>$oglasi]);
     }
 	//--------------------------------------------------------------------
 

@@ -48,3 +48,27 @@
 
 
 <!-- Oglasi iz baze -->
+
+
+<h2 style="text-align: center !important; color: RGB(254,44,1); margin-top: 5%;"> <i>Oglasi</i></h2>
+<table class="table" style="margin-top: 2%; margin-bottom: 5%">
+<?php
+$i=0;
+$oglasiM=new App\Models\Oglasi();
+
+foreach ($oglasi as $oglas) {
+    $glavna=$oglasiM->find($oglas->oglasId);
+   
+    if(($i % 2)==0){
+        echo '<tr style="background-color: rgba(148,69,69,0.04)"><td><table class="table-borderless"><tr><td><i><u>Korsnik:</u> </i>'.$glavna->username.'</td></tr><tr><td style="width:30%;"><img style="width:100%;" src="data:image/jpeg;base64,'.base64_encode( $glavna->slika ).'"/></td></tr><tr><td><table class="table-bordered"><tr><td><table class="table"><tr><td><i><u>Vrsta: </u></i>'.$glavna->vrsta.'</td></tr><tr><td><i><u>Pol: </u></i>'.$glavna->pol.'</td></tr><tr><td><i><u>Rasa: </u></i>'.$glavna->rasa.'</td></tr></table></td><td><table class="table"><tr><td><i><u>Opis:</u></i></td></tr><tr><td style="padding-left:1%; text-align: justify; font-size: 18px; font-weight: 400" >'.$glavna->opis. '</td></tr></table></td></tr></table></td></tr></table></td>';
+    }
+    else {
+        
+        echo '<td><table class="table-borderless"><tr><td><i><u>Korsnik:</u> </i>'.$glavna->username.'</td></tr><tr><td style="width:30%;"><img style="width:100%;" src="data:image/jpeg;base64,'.base64_encode( $glavna->slika ).'"/></td></tr><tr><td><table class="table-bordered"><tr><td><table class="table"><tr><td><i><u>Vrsta: </u></i>'.$glavna->vrsta.'</td></tr><tr><td><i><u>Pol: </u></i>'.$glavna->pol.'</td></tr><tr><td><i><u>Rasa: </u></i>'.$glavna->rasa.'</td></tr></table></td><td><table class="table"><tr><td><i><u>Opis:</u></i></td></tr><tr><td style="padding-left:1%; text-align: justify; font-size: 18px; font-weight: 400" >'.$glavna->opis. '</td></tr></table></td></tr></table></td></tr></table></td></tr>';
+    }
+    $i=$i+1;
+}   
+if(($i % 2)==0)    echo '</tr>';
+?>
+
+</table>
