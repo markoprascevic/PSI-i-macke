@@ -8,15 +8,15 @@
 </script>
 
 <!-- forma na vrshu stranice -->
-<form name="pretragaLF" method="GET" action="" style="background-color: rgba(148,69,69,0.1)">
+<form name="pretragaLF" method="GET" action="lfPretrazi" style="background-color: rgba(148,69,69,0.1)">
     <div class="row" style="padding-top: 1%; padding-bottom: 1%">
-         <div class="col-sm-2" style="text-align: right">
-                <input type="radio" id="izgubljen" name="izgpro" value="izgubljen">
+         <div class="col-sm-4" style="text-align: center">
+                <input type="radio" id="izgubljen" name="izgpro" value="izgubljen" >
                 Izgubljen
-            </div>
-            <div class="col-sm-2" style="text-align: center">
-                <input type="radio" id="izgubljen" name="izgpro" value="izgubljen">
+                <input type="radio" id="pronadjen" name="izgpro" value="pronadjen">
                 Pronađen 
+                <input type="radio" id="pronadjen" name="izgpro" value="%" checked>
+                Oba
             </div>
             <div class="col-sm-1" style="text-align: left">
                 <select id="vrsta" name="vrsta">
@@ -28,8 +28,8 @@
             <div class="col-sm-1" style="text-align: center">
                 <select id="pol" name="pol">
                     <option value="pol">Pol</option>
-                    <option value="muzijak">Mužijak</option>
-                    <option value="zenka">Ženka</option>
+                    <option value="musko">Mužijak</option>
+                    <option value="zensko">Ženka</option>
                 </select>         
             </div>
             <div class="col-sm-2">

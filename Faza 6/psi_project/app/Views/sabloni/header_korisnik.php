@@ -80,7 +80,7 @@
         <header>
                 <div class="row" id="grad">    
                     <div class="col-sm-1" style="text-align:center">
-                        <?php echo '<a href="#"><img style="width:130px; " src="data:image/jpeg;base64,'.base64_encode( $slike[7]->slika ).'"/></a>';?>
+                        <?php echo '<a href="index"><img style="width:130px; " src="data:image/jpeg;base64,'.base64_encode( $slike[7]->slika ).'"/></a>';?>
                     </div>
 
                     <div class="offset-sm-2 col-sm-9">
@@ -88,8 +88,8 @@
                         <div class="row">
                             <div class="col-sm-9" style="margin:0px; margin-top:35px !important; padding: 0px;">
                                 <?php echo anchor("$controller/index",'<button style=" font-size:23px; height: 50px; width: 190px; border: solid red 2px; background-color: RGB(254,44,1);" type="button" name="Pocetna" class="btn btn-danger button1 buttoni">Početna</button>'); ?>
-                                <?php echo anchor("$controller/index",'<button style=" font-size:23px; height: 50px; width: 190px; border: solid red 2px; background-color: RGB(254,44,1);" type="button" name="Lost&Found" class="btn btn-danger button2 buttoni">Lost&Found</button>'); ?>
-                                <?php echo anchor("$controller/index",'<button style=" font-size:23px; height: 50px; width: 190px; border: solid red 2px; background-color: RGB(254,44,1);" type="button" name="Udomi" class="btn btn-danger button3 buttoni">Udomi</button>'); ?>
+                                <?php echo anchor("$controller/lf",'<button style=" font-size:23px; height: 50px; width: 190px; border: solid red 2px; background-color: RGB(254,44,1);" type="button" name="Lost&Found" class="btn btn-danger button2 buttoni">Lost&Found</button>'); ?>
+                                <?php echo anchor("$controller/udomi",'<button style=" font-size:23px; height: 50px; width: 190px; border: solid red 2px; background-color: RGB(254,44,1);" type="button" name="Udomi" class="btn btn-danger button3 buttoni">Udomi</button>'); ?>
                                 <?php echo anchor("$controller/index",'<button style=" font-size:23px; height: 50px; width: 190px; border: solid red 2px; background-color: RGB(254,44,1);" type="button" name="SrecnePrice" class="btn btn-danger button4 buttoni">SrecnePrice</button>'); ?>
                                 <?php echo anchor("$controller/index",'<button style=" font-size:23px; height: 50px; width: 190px; border: solid red 2px; background-color: RGB(254,44,1);" type="button" name="Zalbe" class="btn btn-danger button5 buttoni">Zalbe</button>'); ?>
                             </div>
