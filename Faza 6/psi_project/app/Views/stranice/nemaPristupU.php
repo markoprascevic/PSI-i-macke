@@ -18,6 +18,6 @@
 </div>
 <div>
     <div class="col-sm-12" style="text-align:center">
-        <?php echo '<a href="index"><img style="width:130px; " src="data:image/jpeg;base64,'.base64_encode( $slike[10]->slika ).'"/></a>';?>
+        <?php echo anchor("gost/register",'<img style="width:130px; " src="data:image/jpeg;base64,'.base64_encode( $slike[10]->slika ).'">');?>
     </div>
 </div>

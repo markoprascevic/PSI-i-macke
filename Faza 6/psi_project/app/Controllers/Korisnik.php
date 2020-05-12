@@ -126,4 +126,9 @@ class Korisnik extends BaseController
             $this->prikaz('Views/stranice/Udomi.php', ['slike'=>$slike], ['oglasi'=>$oglasi]);
         }
     }
+    
+    public function logout(){
+        $this->session->destroy();
+        return redirect()->to(site_url('/'));
+    }
 }

@@ -95,10 +95,17 @@
                                 <?php echo anchor("$controller/nemaPristupZ",'<button style=" font-size:23px; height: 50px; width: 190px; border: solid red 2px; background-color: RGB(254,44,1);" type="button" name="Zalbe" class="btn btn-danger button5 buttoni">Zalbe</button>'); ?>
                             </div>
                             <div class="offset-sm-1 col-sm-1" style="margin-top: 20px; text-align: right">
-                                <?php echo '<a href="#"><img style="width:40px; " src="data:image/jpeg;base64,'.base64_encode( $slike[0]->slika ).'"/></a>';?>
+                                <script>
+                                    localStorage.setItem("pocetna","false");
+                                    localStorage.setItem("lf","false");
+                                    localStorage.setItem("udomi","false");
+                                    localStorage.setItem("srecneprice","false");
+                                    localStorage.setItem("zalbe","false");
+                                </script>
+                                <?php echo anchor("$controller/login",'<img style="width:40px; " src="data:image/jpeg;base64,'.base64_encode( $slike[0]->slika ).'">');?>
                             </div>
                             <div class="col-sm-1" style="margin-top: 20px;">
-                                <?php echo '<a href="#"><img style="width:40px; " src="data:image/jpeg;base64,'.base64_encode( $slike[1]->slika ).'"/></a>';?>
+                                <?php echo anchor("Gost/register",'<img style="width:40px; " src="data:image/jpeg;base64,'.base64_encode( $slike[1]->slika ).'">');?>
                             </div>
                         </div> 
                     </div>

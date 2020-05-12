@@ -97,7 +97,7 @@
                                 <?php echo '<a href="#"><img style="width:40px; " src="data:image/jpeg;base64,'.base64_encode( $slike[5]->slika ).'"/></a>';?>
                             </div>
                             <div class="col-sm-1" style="margin-top: 20px;">
-                                <?php echo '<a href="#"><img style="width:40px; " src="data:image/jpeg;base64,'.base64_encode( $slike[6]->slika ).'"/></a>';?>
+                                <?php echo anchor("Korisnik/logout", '<img style="width:40px; " src="data:image/jpeg;base64,'.base64_encode( $slike[6]->slika ).'"/>');?>
                             </div>
                         </div> 
                     </div>

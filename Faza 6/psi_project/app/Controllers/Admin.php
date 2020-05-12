@@ -36,10 +36,10 @@ class Admin extends BaseController
 	//--------------------------------------------------------------------
     
     public function lfPretrazi(){
-        $ip=$_GET['izgpro'];
-        $v=$_GET['vrsta'];
-        $r=$_GET['rasa'];
-        $p=$_GET['pol'];
+        $ip=$this->request->getVar('izgpro');
+        $v=$this->request->getVar('vrsta');
+        $r=$this->request->getVar('rasa');
+        $p=$this->request->getVar('pol');
         
         if($ip=='izgubljen') $ip=0;
         else if($ip=='pronadjen') $ip=1;
@@ -170,5 +170,10 @@ class Admin extends BaseController
         $slike=$slikaModel->findAll();
         
         return redirect()->to(site_url("Admin/udomi"));
+    }
+    
+    public function logout(){
+        $this->session->destroy();
+        return redirect()->to(site_url('/'));
     }
 }

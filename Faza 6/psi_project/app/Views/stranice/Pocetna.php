@@ -27,10 +27,7 @@
           
     }
     .onama:hover{
-        margin-top: 5%;
-        
         background-color: white;
-        transform: scale(1.3);
     }
     
 </style>

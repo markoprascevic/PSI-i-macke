@@ -101,10 +101,10 @@
                                 
                             </div>
                             <div class="col-sm-1" style="margin-top: 20px; text-align: right">
-                                <?php echo '<a href="#"><img style="width:40px; " src="data:image/jpeg;base64,'.base64_encode( $slike[5]->slika ).'"/></a>';?>
+                                <?php echo anchor("Admin/logout",'<img style="width:40px; " src="data:image/jpeg;base64,'.base64_encode( $slike[5]->slika ).'">');?>
                             </div>
                             <div class="col-sm-1" style="margin-top: 20px;">
-                                <?php echo '<a href="#"><img style="width:40px; " src="data:image/jpeg;base64,'.base64_encode( $slike[6]->slika ).'"/></a>';?>
+                                <?php echo anchor("Admin/logout",'<img style="width:40px; " src="data:image/jpeg;base64,'.base64_encode( $slike[6]->slika ).'">');?>
                             </div>
                         </div> 
                     </div>
