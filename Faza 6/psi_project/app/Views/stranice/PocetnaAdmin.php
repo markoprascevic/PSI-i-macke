@@ -36,7 +36,7 @@
         localStorage.setItem("udomi",false);
         localStorage.setItem("srecneprice",false);
         localStorage.setItem("zalbe",false);
-        localStorage.setItem("administraor",false);
+        localStorage.setItem("administrator",false);
         localStorage.setItem("pocetna",true);            
 </script>
 

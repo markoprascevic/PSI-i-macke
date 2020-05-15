@@ -29,7 +29,7 @@
                    $('.button5').css('background-color','white');
                    $('.button5').css('color', 'black');
                 }
-                if(localStorage.getItem("Administrator")=="true"){
+                if(localStorage.getItem("administrator")=="true"){
                    $('.button6').css('background-color','white');
                    $('.button6').css('color', 'black');
                 }
@@ -95,13 +95,12 @@
                                 <?php echo anchor("$controller/index",'<button style=" font-size:23px; height: 50px; width: 190px; border: solid red 2px; background-color: RGB(254,44,1);" type="button" name="Pocetna" class="btn btn-danger button1 buttoni">Početna</button>'); ?>
                                 <?php echo anchor("$controller/lf",'<button style=" font-size:23px; height: 50px; width: 190px; border: solid red 2px; background-color: RGB(254,44,1);" type="button" name="Lost&Found" class="btn btn-danger button2 buttoni">Lost&Found</button>'); ?>
                                 <?php echo anchor("$controller/udomi",'<button style=" font-size:23px; height: 50px; width: 190px; border: solid red 2px; background-color: RGB(254,44,1);" type="button" name="Udomi" class="btn btn-danger button3 buttoni">Udomi</button>'); ?>
-                                <?php echo anchor("$controller/index",'<button style=" font-size:23px; height: 50px; width: 190px; border: solid red 2px; background-color: RGB(254,44,1);" type="button" name="SrecnePrice" class="btn btn-danger button4 buttoni">SrecnePrice</button>'); ?>
-                                <?php echo anchor("$controller/index",'<button style=" font-size:23px; height: 50px; width: 190px; border: solid red 2px; background-color: RGB(254,44,1);" type="button" name="Zalbe" class="btn btn-danger button5 buttoni">Zalbe</button>'); ?>
-                                <?php echo anchor("$controller/index",'<button style=" font-size:23px; height: 50px; width: 190px; border: solid red 2px; background-color: RGB(254,44,1);" type="button" name="Administrator" class="btn btn-danger button6 buttoni">Administrator</button>'); ?>
+                                <?php echo anchor("$controller/srecneprice",'<button style=" font-size:23px; height: 50px; width: 190px; border: solid red 2px; background-color: RGB(254,44,1);" type="button" name="SrecnePrice" class="btn btn-danger button4 buttoni">SrecnePrice</button>'); ?>
+                                <?php echo anchor("$controller/administrator",'<button style=" font-size:23px; height: 50px; width: 190px; border: solid red 2px; background-color: RGB(254,44,1);" type="button" name="Administrator" class="btn btn-danger button6 buttoni">Administrator</button>'); ?>
                                 
                             </div>
                             <div class="col-sm-1" style="margin-top: 20px; text-align: right">
-                                <?php echo anchor("Admin/logout",'<img style="width:40px; " src="data:image/jpeg;base64,'.base64_encode( $slike[5]->slika ).'">');?>
+                                <?php echo anchor("Admin/profil",'<img style="width:40px; " src="data:image/jpeg;base64,'.base64_encode( $slike[5]->slika ).'">');?>
                             </div>
                             <div class="col-sm-1" style="margin-top: 20px;">
                                 <?php echo anchor("Admin/logout",'<img style="width:40px; " src="data:image/jpeg;base64,'.base64_encode( $slike[6]->slika ).'">');?>

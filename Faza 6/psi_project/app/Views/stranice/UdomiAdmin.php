@@ -3,7 +3,7 @@
         localStorage.setItem("udomi",true);
         localStorage.setItem("srecneprice",false);
         localStorage.setItem("zalbe",false);
-        localStorage.setItem("administraor",false);
+        localStorage.setItem("administrator",false);
         localStorage.setItem("lf",false);            
 </script>
 
@@ -61,13 +61,13 @@ foreach ($oglasi as $oglas) {
     $glavna=$oglasiM->find($oglas->oglasId);
    
     if(($i % 2)==0){
-        echo '<tr style="background-color: rgba(148,69,69,0.04)"><td><table class="table-borderless"><tr><td style="text-align: right"><i> Obrisi vest: ';
+        echo '<tr style="background-color: rgba(148,69,69,0.04)"><td><table class="table-borderless"><tr><td style="text-align: right"><i> Obrisi oglas: ';
         echo anchor("$controller/brisiUdomi/{$glavna->oglasId}",'<img style=" width:30px" src='.$putanja.'></i><hr></td></tr>');
         echo '</td></tr><tr><td><i><u>Korsnik:</u> </i>'.$glavna->username.'</td></tr><tr><td style="width:30%;"><img style="width:100%;" src="data:image/jpeg;base64,'.base64_encode( $glavna->slika ).'"/></td></tr><tr><td><table class="table-bordered"><tr><td><table class="table"><tr><td><i><u>Vrsta: </u></i>'.$glavna->vrsta.'</td></tr><tr><td><i><u>Pol: </u></i>'.$glavna->pol.'</td></tr><tr><td><i><u>Rasa: </u></i>'.$glavna->rasa.'</td></tr><tr><td><i><u>Starost: </u></i>'.$oglas->starost.'</td></tr><tr><td><i><u>Mesto: </u></i>'.$oglas->mesto.'</td></tr></table></td><td><table class="table"><tr><td><i><u>Opis:</u></i></td></tr><tr><td style="padding-left:1%; text-align: justify; font-size: 18px; font-weight: 400" >'.$glavna->opis. '</td></tr></table></td></tr></table></td></tr></table></td>';
     }
     else {
         
-        echo '<td><table class="table-borderless"><tr><td style="text-align: right"><i> Obrisi vest: ';
+        echo '<td><table class="table-borderless"><tr><td style="text-align: right"><i> Obrisi oglas: ';
         echo anchor("$controller/brisiUdomi/{$glavna->oglasId}",'<img style=" width:30px" src='.$putanja.'></i><hr></td></tr>');
         echo '</td></tr><tr><td><i><u>Korsnik:</u> </i>'.$glavna->username.'</td></tr><tr><td style="width:30%;"><img style="width:100%;" src="data:image/jpeg;base64,'.base64_encode( $glavna->slika ).'"/></td></tr><tr><td><table class="table-bordered"><tr><td><table class="table"><tr><td><i><u>Vrsta: </u></i>'.$glavna->vrsta.'</td></tr><tr><td><i><u>Pol: </u></i>'.$glavna->pol.'</td></tr><tr><td><i><u>Rasa: </u></i>'.$glavna->rasa.'</td></tr><tr><td><i><u>Starost: </u></i>'.$oglas->starost.'</td></tr><tr><td><i><u>Mesto: </u></i>'.$oglas->mesto.'</td></tr></table></td><td><table class="table"><tr><td><i><u>Opis:</u></i></td></tr><tr><td style="padding-left:1%; text-align: justify; font-size: 18px; font-weight: 400" >'.$glavna->opis. '</td></tr></table></td></tr></table></td></tr></table></td></tr>';
     }

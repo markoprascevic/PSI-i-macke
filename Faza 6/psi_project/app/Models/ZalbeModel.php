@@ -2,17 +2,17 @@
 
 use CodeIgniter\Model;
 
-class Oglasi extends Model
+class ZalbeModel extends Model
 {
-    protected $table      = 'oglas';
-    protected $primaryKey = 'oglasId';
+    protected $table      = 'zalba';
+    protected $primaryKey = 'zalbaId';
 
     protected $returnType     = 'object';
 
-    protected $allowedFields = ['slika', 'vrsta','pol','rasa','opis','username','oglasId'];
-    
+    protected $allowedFields = ['zalbaId','username','opis'];
+
     public function findByUsername($username) {
         return $this->where('username',$username)->findAll();
     }
-
+    
 }
