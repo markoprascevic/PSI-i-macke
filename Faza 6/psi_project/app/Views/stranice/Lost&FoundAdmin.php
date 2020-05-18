@@ -41,7 +41,7 @@
                 <?php echo '<input type="image" style="width:40%; " src="data:image/jpeg;base64,'.base64_encode( $slike[9]->slika ).'"/>';?>
             </div>
             <div class="col-sm-2" style="text-align: center">
-                <input type="button" id="postaviLF" name="postavuLF" value="Postavi oglas">
+                <?php echo anchor("Admin/postaviLF",'<input type="button" id="postaviLF" name="postavuLF" value="Postavi oglas">');?>
             </div>
     </div>  
 </form>
