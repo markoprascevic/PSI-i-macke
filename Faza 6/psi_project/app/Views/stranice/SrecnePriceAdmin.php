@@ -23,7 +23,7 @@ $putanja="'data:image/jpeg;base64,".base64_encode( $slike[8]->slika )."'";
 foreach ($price as $prica) {   
     
         
-        echo '<tr style="background-color: rgba(148,69,69,0.04)"><td><table class="table-borderless"><tr><td style="text-align: right"><i> Obrisi oglas: ';
+        echo '<tr style="background-color: rgba(148,69,69,0.04)"><td><table class="table-borderless"><tr><td style="text-align: right"><i> Obriši srećnu priču: ';
         echo anchor("$controller/brisiPricu/{$prica->srecnapricaId}",'<img style=" width:30px" src='.$putanja.'></i><hr></td></tr>');
         echo '<tr><td style="width:30%;"><img style="width:100%;" src="data:image/jpeg;base64,'.base64_encode( $prica->slika ).'"/></td></tr><tr><td>'.$prica->opis.'</td></tr></table></tr>';
     

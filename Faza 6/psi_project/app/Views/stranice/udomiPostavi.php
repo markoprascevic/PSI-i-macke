@@ -79,7 +79,7 @@
                                     Pol:
                                 </td>
                                 <td>
-                                    <input type="text" name="pol" placeholder="mužijak/ženka">
+                                    <input type="text" name="pol" placeholder="musko/zensko">
 
                                 </td>
                             </tr>

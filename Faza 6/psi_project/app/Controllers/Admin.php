@@ -572,4 +572,86 @@ class Admin extends BaseController
         
         return redirect()->to(site_url("Admin/udomi"));
     }
+    public function profil() {
+        $slikaModel=new SlikeModel();
+        $slike=$slikaModel->findAll();
+        $oglasiModel=new Oglasi();
+        $oglasi=$oglasiModel->findByUsername($this->session->get('korisnik')->username);
+        $korisnik= $this->session->get('korisnik');
+        $this->prikaz('stranice/mojprofil.php',['slike'=>$slike], ['korisnik'=>$korisnik, 'oglasi'=>$oglasi]);
+    }
+    
+    public function izmeniInfo($greske=[]) {
+        $slikaModel=new SlikeModel();
+        $slike=$slikaModel->findAll();
+        $korisnik= $this->session->get('korisnik');
+        $this->prikaz('stranice/izmeniinfo.php',['slike'=>$slike], ['greske'=>$greske, 'korisnik'=>$korisnik]);
+    }
+    
+    public function izmeniSubmit() {
+        $lozinka=$this->request->getVar('lozinka');
+        $ponloz=$this->request->getVar('ponloz');
+        $email=$this->request->getVar('email');
+        $novaloz=$this->request->getVar('novaloz');
+        $telefon=$this->request->getVar('telefon');
+        $adresa=$this->request->getVar('adresa');
+        $user= $this->session->get('korisnik');
+        $imeiprezime=$user->imeiprezime;
+        $korime=$user->username;
+        $admin=$user->admin;
+        
+        if (strlen($lozinka)<8 && strlen($lozinka)>0)
+            $greske['lozinka']='<br/>Lozinka mora da sadrži barem 8 slova';
+        if (strlen($lozinka)>20)
+            $greske['lozinka']='<br/>Lozinka sme da sadrži najviše 20 slova';
+        if (strlen($ponloz)<8 && strlen($ponloz)>0)
+            $greske['ponloz']='<br/>Lozinka mora da sadrži barem 8 slova';
+        if (strlen($ponloz)>20)
+            $greske['ponloz']='<br/>Lozinka sme da sadrži najviše 20 slova';
+        if (strlen($email)>40)
+            $greske['email']='<br/>Email mora da sadrži najviše 40 slova';
+        if (strpos($email,"@")==false || strpos($email,"@")==0 || strpos($email,"@")==strlen($email)-1)
+            $greske['email']='<br/>Email nije u dobrom formatu';
+        if (strlen($email)==0) 
+            $greske['email']='<br/>Unesite email';
+        
+        if (isset($greske)) return $this->izmeniInfo($greske);
+        
+        $korisnikModel=new KorisnikModel();
+        $korisnik=$korisnikModel->findByEmail($email);
+        if($korisnik!=null && $korisnik[0]->email!=$user->email)
+            $greske['email']='<br/>Postoji profil sa ovim mejlom';
+        if($lozinka!=$ponloz)
+            $greske['ponloz']='<br/>Lozinka i ponovljena lozinka se ne poklapaju';
+        
+        if ($novaloz!=$user->password) $greske['novaloz']='<br/>Pogrešna lozinka';
+        if ($lozinka=="" && $ponloz=="") $lozinka=$user->password;
+        if ($telefon=="") $telefon=null;
+        if ($adresa=="") $adresa=null;
+            
+        if (isset($greske)) return $this->izmeniInfo($greske);
+        
+        $korisnikModel=new KorisnikModel();
+        $korisnikModel->save([
+            'imeiprezime'=>$imeiprezime,
+            'password'=>$lozinka,
+            'username'=>$korime,
+            'telefon'=>$telefon,
+            'email'=>$email,
+            'adresa'=>$adresa,
+            'admin'=>$admin
+        ]);
+        
+        $this->session->set('korisnik',$korisnikModel->find($korime));
+        return redirect()->to(site_url("Admin/profil"));
+    }
+    
+    public function mojiOglasi() {
+        $slikaModel=new SlikeModel();
+        $slike=$slikaModel->findAll();
+        $oglasiModel=new Oglasi();
+        $oglasi=$oglasiModel->findByUsername($this->session->get('korisnik')->username);
+        $this->prikaz('stranice/mojiOglasi.php', ['slike'=>$slike], ['oglasi'=>$oglasi]);
+    }
+    
 }

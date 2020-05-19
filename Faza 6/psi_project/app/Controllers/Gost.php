@@ -102,6 +102,10 @@ class Gost extends BaseController
         
         $korisnikModel=new KorisnikModel();
         $korisnik=$korisnikModel->find($this->request->getVar('korime'));
+        if ($korisnik==null){ 
+            $korisnik=$korisnikModel->findByEmail($this->request->getVar ('korime'));
+            if ($korisnik!=null) $korisnik=$korisnik[0];
+        }
         if($korisnik==null || $korisnik->password!=$this->request->getVar('lozinka'))
             return $this->login('Korisničko ime ili lozinka su neispravni!');
         
@@ -167,7 +171,8 @@ class Gost extends BaseController
             $greske['ponloz']='<br/>Lozinka i ponovljena lozinka se ne poklapaju';
         
         if (isset($greske)) return $this->register($greske);
-        
+        if ($telefon=="") $telefon=null;
+        if ($adresa=="") $adresa=null;
         $korisnikModel=new KorisnikModel();
         $korisnikModel->insert([
             'imeiprezime'=>$imeiprezime,
