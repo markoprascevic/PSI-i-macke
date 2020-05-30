@@ -48,7 +48,7 @@
                     <textarea placeholder="Unesite opis..." name='opis' style="width:100%;" rows="6" id="gradijent"></textarea> 
                 </div>
                 <div class="col-sm-2" style="padding-top:18%; padding-left: 15%">
-                    <input type="submit" value="Postavite priču" name="submit" style="text-align: right; border-radius: 15px; color:white; background-color: RGB(254,44,1);">
+                    <input onlick='return confirm("Da li ste sigurni da želite da postavite srećnu priču?")' type="submit" value="Postavite priču" name="submit" style="text-align: right; border-radius: 15px; color:white; background-color: RGB(254,44,1);">
                 </div>
             </div> 
         </form>    

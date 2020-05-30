@@ -128,7 +128,7 @@
                     </tr>
                     <tr>
                         <td colspan="4" style="text-align: center;">
-                            <input type="submit" style="border-radius: 10px; background:RGB(234,44,6); color:white;" value="Potvrdi">
+                            <input onclick='return confirm("Da li ste sigurni da zelite da izmenite informacije?");'  type="submit" style="border-radius: 10px; background:RGB(234,44,6); color:white;" value="Potvrdi">
                         </td>
                     </tr>
                 </table>

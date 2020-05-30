@@ -12,6 +12,7 @@ class Korisnik extends BaseController
 {
     protected function prikaz($page,$data, $data2){
         $data['controller']='Korisnik';
+        $_SESSION['curUser'] = $this->session->get('korisnik')->username;
         echo view('sabloni/header_korisnik.php', $data);
         echo view($page,$data2);
         echo view('sabloni/footer.php');
@@ -193,6 +194,8 @@ class Korisnik extends BaseController
         if ($this->request->getVar('rasa')!=null){
             $rasa=$this->request->getVar('rasa');
         }
+        
+        
         
         $user=$this->session->get('korisnik')->username;
         
@@ -444,6 +447,7 @@ class Korisnik extends BaseController
         $lfModel->delete($id);
         return $this->mojiOglasi();
     }
+
     
 }
 

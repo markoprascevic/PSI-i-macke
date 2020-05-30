@@ -73,7 +73,7 @@
                 echo $greske['zalba'];
             ?></font>
 
-            <input type="submit" style="border-radius: 10px; background:RGB(234,44,6); color:white; width: 100%" value="Pošalji žalbu">
+            <input onclick='return confirm(" Da li ste sigurni da zelite da pošaljete žalbu? ");'  type="submit" style="border-radius: 10px; background:RGB(234,44,6); color:white; width: 100%" value="Pošalji žalbu">
 
         </div>
     </div>  

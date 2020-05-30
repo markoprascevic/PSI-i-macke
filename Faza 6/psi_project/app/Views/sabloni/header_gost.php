@@ -77,7 +77,13 @@
             z-index: 20;
         }
         </style>
-        
+        <script>
+                                    localStorage.setItem("pocetna","false");
+                                    localStorage.setItem("lf","false");
+                                    localStorage.setItem("udomi","false");
+                                    localStorage.setItem("srecneprice","false");
+                                    localStorage.setItem("zalbe","false");
+        </script>
         <header>
             <div class="row" id="grad">    
                     <div class="col-sm-1" style="text-align:center">
@@ -87,25 +93,32 @@
                     <div class="offset-sm-2 col-sm-9">
 
                         <div class="row">
-                            <div class="col-sm-9" style="margin:0px; margin-top:35px !important; padding: 0px;">
-                                <?php echo anchor("$controller/index",'<button style=" font-size:23px; height: 50px; width: 190px; border: solid red 2px; background-color: RGB(254,44,1);" type="button" name="Pocetna" class="btn btn-danger button1 buttoni">Početna</button>'); ?>
-                                <?php echo anchor("$controller/lf",'<button style=" font-size:23px; height: 50px; width: 190px; border: solid red 2px; background-color: RGB(254,44,1);" type="button" name="Lost&Found" class="btn btn-danger button2 buttoni">Lost&Found</button>'); ?>
-                                <?php echo anchor("$controller/nemaPristupU",'<button style=" font-size:23px; height: 50px; width: 190px; border: solid red 2px; background-color: RGB(254,44,1);" type="button" name="Udomi" class="btn btn-danger button3 buttoni">Udomi</button>'); ?>
-                                <?php echo anchor("$controller/nemaPristupS",'<button style=" font-size:23px; height: 50px; width: 190px; border: solid red 2px; background-color: RGB(254,44,1);" type="button" name="SrecnePrice" class="btn btn-danger button4 buttoni">Srećne Priče</button>'); ?>
-                                <?php echo anchor("$controller/nemaPristupZ",'<button style=" font-size:23px; height: 50px; width: 190px; border: solid red 2px; background-color: RGB(254,44,1);" type="button" name="Zalbe" class="btn btn-danger button5 buttoni">Žalbe</button>'); ?>
+                            <div class="col-sm-8" style="padding-top: 35px; ">
+                                <div class="row">
+                                    <div class="offset-sm-1 col-sm-2" style="padding: 0px; padding-right: 2px">
+                                        <?php echo anchor("$controller/index",'<button style=" font-size:23px; height: 50px; width: 100%; border: solid red 2px; background-color: RGB(254,44,1);" type="button" name="Pocetna" class="btn btn-danger button1 buttoni">Početna</button>'); ?>
+                                    </div>
+                                    <div class="ol-sm-2" style="padding: 0px; padding-right: 2px">
+                                        <?php echo anchor("$controller/lf",'<button style=" font-size:23px; height: 50px; width: 100%; border: solid red 2px; background-color: RGB(254,44,1);" type="button" name="Lost&Found" class="btn btn-danger button2 buttoni">Lost&Found</button>'); ?>
+                                    </div>
+                                    <div class="col-sm-2" style="padding: 0px; padding-right: 2px">
+                                       <?php echo anchor("$controller/nemaPristupU",'<button style=" font-size:23px; height: 50px; width: 100%; border: solid red 2px; background-color: RGB(254,44,1);" type="button" name="Udomi" class="btn btn-danger button3 buttoni">Udomi</button>'); ?>
+                                    </div>
+                                    <div class="col-sm-2" style="padding: 0px; padding-right: 2px">
+                                        <?php echo anchor("$controller/nemaPristupS",'<button style=" font-size:23px; height: 50px; width: 100%; border: solid red 2px; background-color: RGB(254,44,1);" type="button" name="SrecnePrice" class="btn btn-danger button4 buttoni">Srećne Priče</button>'); ?>
+                                    </div>
+                                    <div class="col-sm-2" style="padding: 0px;">
+                                        <?php echo anchor("$controller/nemaPristupZ",'<button style=" font-size:23px; height: 50px; width: 100%; border: solid red 2px; background-color: RGB(254,44,1);" type="button" name="Zalbe" class="btn btn-danger button5 buttoni">Žalbe</button>'); ?>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="offset-sm-1 col-sm-1" style="margin-top: 20px; text-align: right">
-                                <script>
-                                    localStorage.setItem("pocetna","false");
-                                    localStorage.setItem("lf","false");
-                                    localStorage.setItem("udomi","false");
-                                    localStorage.setItem("srecneprice","false");
-                                    localStorage.setItem("zalbe","false");
-                                </script>
-                                <?php echo anchor("$controller/login",'<img style="width:40px; " src="data:image/jpeg;base64,'.base64_encode( $slike[0]->slika ).'">');?>
+                            <div class="col-sm-2" style="margin-top: 30px; text-align: right; font-size: 20px; color: white; text-align: right">
+                                <?php echo "<i>&nbsp;</i>"?>
                             </div>
-                            <div class="col-sm-1" style="margin-top: 20px;">
-                                <?php echo anchor("Gost/register",'<img style="width:40px; " src="data:image/jpeg;base64,'.base64_encode( $slike[1]->slika ).'">');?>
+                            <div class="col-sm-2" style="margin-top: 20px; text-align: center;"> 
+                                <?php echo anchor("$controller/login",'<img style="width:20%; margin-right:10% "  src="data:image/jpeg;base64,'.base64_encode( $slike[0]->slika ).'">');?>
+                            
+                                <?php echo anchor("Gost/register",'<img style="width:20%; " src="data:image/jpeg;base64,'.base64_encode( $slike[1]->slika ).'">');?>
                             </div>
                         </div> 
                     </div>

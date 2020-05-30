@@ -133,7 +133,7 @@
                 </tr>
                 <tr> 
                     <td colspan="10" style="text-align: right; padding-top: 50px; padding-right:10%">
-                        <input type="submit" style="border-radius: 10px; background:RGB(234,44,6); color:white;" value="Postavi oglas">
+                        <input type="submit" style="border-radius: 10px; background:RGB(234,44,6); color:white;" onclick='return confirm("Da li ste sigurni da zelite da postavite oglas?")' value="Postavi oglas">
                     </td>
                 </tr>
 

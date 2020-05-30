@@ -12,10 +12,11 @@ class Admin extends BaseController
 {
     protected function prikaz($page,$data, $data2){
         $data['controller']='Admin';
-        echo view('sabloni/header_admin.php', $data);
+        $_SESSION['curUser'] = $this->session->get('korisnik')->username;
+        echo view('sabloni/header_admin.php', $data);  
         
         echo view($page,$data2);
-        return view('sabloni/footer.php');
+        echo view('sabloni/footer.php');
     }
     
     public function index(){
@@ -384,7 +385,7 @@ class Admin extends BaseController
     
     public function brisiZalbu($id) {
         $zalbeModel = new ZalbeModel();
-        $zalbeModel->delete($id);
+        $zalbeModel->where('zalbaId',$id)->delete();
         return redirect()->to(site_url("Admin/zalbe"));
     }
     
@@ -652,6 +653,16 @@ class Admin extends BaseController
         $oglasiModel=new Oglasi();
         $oglasi=$oglasiModel->findByUsername($this->session->get('korisnik')->username);
         $this->prikaz('stranice/mojiOglasi.php', ['slike'=>$slike], ['oglasi'=>$oglasi]);
+    }
+    
+    public function mojBrisi($id) {
+        $oglasiModel=new Oglasi();
+        $udomiModel=new UdomiModel();
+        $lfModel= new LFModel();
+        $oglasiModel->delete($id);
+        $udomiModel->delete($id);
+        $lfModel->delete($id);
+        return $this->mojiOglasi();
     }
     
 }

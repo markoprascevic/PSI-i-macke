@@ -22,22 +22,22 @@
         <br>
         <br>
         <br>
-        <?php echo anchor("Admin/izbrisiOglas",'<input type="button" value="Izbriši oglas">'); ?>
+        <?php echo anchor("Admin/izbrisiOglas",'<input class = "form-control" style = "font-weight: bold; border: solid black 2px;" type="button" value="Izbriši oglas">'); ?>
         <br>
         <br>
         <br>
-        <?php $greska="Prvi mi je put"; echo anchor("Admin/pretraziKorisnika/Prvi mi je put",'<input type="button" value="Blokiraj korisnika">'); ?> 
+        <?php $greska="Prvi mi je put"; echo anchor("Admin/pretraziKorisnika/Prvi mi je put",'<input class = "form-control" style = "font-weight: bold; border: solid black 2px" type="button" value="Blokiraj korisnika">'); ?> 
         <br>
         <br>
         <br>
-        <?php echo anchor("Admin/postaviSrecnuPricu",'<input type="button" value="Postavi srećnu priču">'); ?>
+        <?php echo anchor("Admin/postaviSrecnuPricu",'<input class = "form-control" type="button" style = "font-weight: bold; border: solid black 2px" value="Postavi srećnu priču">'); ?>
         <br>
         <br>
         <br>
-        <?php echo anchor("Admin/zalbe",'<input type="button" value="Žalbe">'); ?>
+        <?php echo anchor("Admin/zalbe",'<input class = "form-control" type="button"  style = "font-weight: bold; border: solid black 2px" value="Žalbe">'); ?>
         <br>
         <br>
         <br>
-        <?php echo anchor("Admin/postaviVest",'<input type="button" value="Postavi vest">'); ?>
+        <?php echo anchor("Admin/postaviVest",'<input class = "form-control" type="button" style = "font-weight: bold; border: solid black 2px" value="Postavi vest">'); ?>
     </div>
 </div>
