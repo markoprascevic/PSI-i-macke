@@ -1,3 +1,9 @@
+<!----Marko Praščević 0108/2017
+
+Stranica "nema pristupa" (za gosta)
+@version 1.0
+---->
+
 <script>
         localStorage.setItem("lf",false);
         localStorage.setItem("udomi",true);

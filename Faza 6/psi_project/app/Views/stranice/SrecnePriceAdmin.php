@@ -1,3 +1,9 @@
+<!----Jovana Jelčić 0082/2017
+
+Stranica za prikaz srecnih prica za admina
+@version 1.0
+---->
+
 <script>
         localStorage.setItem("pocetna",false);
         localStorage.setItem("udomi",false);

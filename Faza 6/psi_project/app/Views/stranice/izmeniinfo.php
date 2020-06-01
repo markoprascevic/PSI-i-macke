@@ -1,3 +1,9 @@
+<!----Anja Pantović 0418/2017
+
+Forma za izemenu informacija o korisnickom profilu
+@version 1.0
+---->
+
 <script>
         localStorage.setItem("lf",false);
         localStorage.setItem("udomi",false);

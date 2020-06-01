@@ -8,8 +8,21 @@ use App\Models\ZalbeModel;
 use App\Models\SrecnaModel;
 use App\Models\KorisnikModel;
 
+/*Marko Praščević 0108/2017
+      Jovana Jelčić 0082/2017
+
+Controller za korisnika
+@version 1.0
+*/
+
 class Korisnik extends BaseController
 {
+    
+/* @ret void
+ * @param $page stranica za prikaz, $data podaci koji se koristi na html stranici, $data2 podaci za header
+ * Koristi se za prikaz html stranica
+ * 
+ */
     protected function prikaz($page,$data, $data2){
         $data['controller']='Korisnik';
         $_SESSION['curUser'] = $this->session->get('korisnik')->username;
@@ -17,7 +30,9 @@ class Korisnik extends BaseController
         echo view($page,$data2);
         echo view('sabloni/footer.php');
     }
-    
+/*
+ * prikaz pocetne stranice za korisnika
+ */    
     public function index(){
         $vestiModel=new VestiModel();
         $vesti=$vestiModel->findAll();
@@ -26,7 +41,9 @@ class Korisnik extends BaseController
         $slike=$slikaModel->findAll();
         $this->prikaz('Views/stranice/Pocetna.php', ['slike'=>$slike],['vesti'=>$vesti]);
     }
-    
+/*
+ * prikaz lf stranice za korisnika
+ */    
      public function lf(){
         $lfModel=new LFModel();
         $oglasi=$lfModel->findAll();
@@ -37,7 +54,9 @@ class Korisnik extends BaseController
         $this->prikaz('Views/stranice/Lost&Found.php', ['slike'=>$slike], ['oglasi'=>$oglasi]);
     }
 	//--------------------------------------------------------------------
-    
+/*
+ * pretraga lf oglasa prema unesenim podacima u formi
+ */    
     public function lfPretrazi(){
         $ip=$_GET['izgpro'];
         $v=$_GET['vrsta'];
@@ -77,6 +96,9 @@ class Korisnik extends BaseController
         }
     }
 	//--------------------------------------------------------------------
+/*
+ * prikaz stranice sa udomi oglasima 
+ */
     public function udomi(){
         $udomiModel=new UdomiModel();
         $oglasi=$udomiModel->findAll();
@@ -86,7 +108,9 @@ class Korisnik extends BaseController
         $slike=$slikaModel->findAll();
         $this->prikaz('Views/stranice/Udomi.php', ['slike'=>$slike], ['oglasi'=>$oglasi]);
     }
-    
+/*
+ * pretraga udomi oglasa prema unetim podacima u formi
+ */    
     public function udomiPretrazi() {
         $od=$_GET['starostOd'];
         $do=$_GET['starostDo'];
@@ -130,7 +154,9 @@ class Korisnik extends BaseController
             $this->prikaz('Views/stranice/Udomi.php', ['slike'=>$slike], ['oglasi'=>$oglasi]);
         }
     }
-    
+/*
+ * odjavljivanje sa servisa
+ */    
     public function logout(){
         $this->session->destroy();
         return redirect()->to(site_url('/'));
@@ -138,7 +164,9 @@ class Korisnik extends BaseController
     
     
     //Jole Jelcic ------------------------------------------------------------------------
-     
+/*
+ * prikaz forme za postavljanje lf oglasa
+ */     
     public function postaviLF($greska=""){
         
         $slikaModel=new SlikeModel();
@@ -146,7 +174,9 @@ class Korisnik extends BaseController
         $this->prikaz('Views/stranice/Lost&FoundPostavi.php', ['slike'=>$slike],['greska'=>$greska]);
     }
     
-    
+/*
+ * dodavanje novog udomi oglasa u bazu
+ */    
     public function lfSubmit() {
         if (count($_FILES) > 0) {
             if (is_uploaded_file($_FILES['myfile2']['tmp_name'])) {
@@ -229,13 +259,17 @@ class Korisnik extends BaseController
         return redirect()->to(site_url("Korisnik/lf"));
     }
 
-
+/*
+ * prikaz forme za postavljanje zalbe
+ */
     public function zalbaPostavi() {
         $slikaModel=new SlikeModel();
         $slike=$slikaModel->findAll();
         $this->prikaz('Views/stranice/zalbaPostavi.php', ['slike'=>$slike],[]);
     }
-    
+/*
+ * postavljanje zalbe od strane korisnika
+ */
     public function zalbaSubmit() {
         $db = \Config\Database::connect();
         $builder = $db->table('zalba');
@@ -254,13 +288,19 @@ class Korisnik extends BaseController
         return redirect()->to(site_url("Korisnik/index"));
     }
     
-    
+/*
+ * @param $greska poruka o gresci 
+ * prikaz forme za dodavanje udomi oglasa
+ */    
     public function udomiPostavi($greska="") {
         $slikaModel=new SlikeModel();
         $slike=$slikaModel->findAll();
         $this->prikaz('Views/stranice/udomiPostavi.php', ['slike'=>$slike],['greska'=>$greska]);
     }
-    
+
+/*
+ * dodavanje udomi oglasa i azuriranje baze
+ */    
     public function udomiSubmit() {
         if (count($_FILES) > 0) {
             if (is_uploaded_file($_FILES['myFile3']['tmp_name'])) {
@@ -347,7 +387,9 @@ class Korisnik extends BaseController
         return redirect()->to(site_url("Korisnik/udomi"));
     }
     
-    
+/*
+ * prikaz stranice sa srecnim pricama
+ */   
     public function srecnePrice() {
         $slikaModel=new SlikeModel();
         $slike=$slikaModel->findAll();
@@ -355,7 +397,9 @@ class Korisnik extends BaseController
         $price=$priceModel->findAll();
         $this->prikaz('stranice/SrecnePrice.php',['slike'=>$slike],['price'=>$price]);
     }
-    
+/*
+ * prikaz profila korisnika
+ */    
     public function profil() {
         $slikaModel=new SlikeModel();
         $slike=$slikaModel->findAll();
@@ -364,14 +408,19 @@ class Korisnik extends BaseController
         $korisnik= $this->session->get('korisnik');
         $this->prikaz('stranice/mojprofil.php',['slike'=>$slike], ['korisnik'=>$korisnik, 'oglasi'=>$oglasi]);
     }
-    
+/*
+ * @param $greska poruka o gresci koja ce se ispisati na stranici pri neregularnoj situaciji
+ * prikaz forme za izmenu licnih informacija
+ */   
     public function izmeniInfo($greske=[]) {
         $slikaModel=new SlikeModel();
         $slike=$slikaModel->findAll();
         $korisnik= $this->session->get('korisnik');
         $this->prikaz('stranice/izmeniinfo.php',['slike'=>$slike], ['greske'=>$greske, 'korisnik'=>$korisnik]);
     }
-    
+/*
+ * azuriranje informacija o korisniku
+ */    
     public function izmeniSubmit() {
         $lozinka=$this->request->getVar('lozinka');
         $ponloz=$this->request->getVar('ponloz');
@@ -429,7 +478,9 @@ class Korisnik extends BaseController
         $this->session->set('korisnik',$korisnikModel->find($korime));
         return redirect()->to(site_url("Korisnik/profil"));
     }
-    
+/*
+ * prikaz svih oglasa korisnika
+ */    
     public function mojiOglasi() {
         $slikaModel=new SlikeModel();
         $slike=$slikaModel->findAll();
@@ -437,7 +488,10 @@ class Korisnik extends BaseController
         $oglasi=$oglasiModel->findByUsername($this->session->get('korisnik')->username);
         $this->prikaz('stranice/mojiOglasi.php', ['slike'=>$slike], ['oglasi'=>$oglasi]);
     }
-    
+/*
+ * @param $id identifikator licnog oglasa koje ce biti obrisan
+ * brisanje licnog oglasa datog koriniska
+ */    
     public function mojBrisi($id) {
         $oglasiModel=new Oglasi();
         $udomiModel=new UdomiModel();

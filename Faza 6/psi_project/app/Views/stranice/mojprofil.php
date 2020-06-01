@@ -1,3 +1,9 @@
+<!----Anja Pantović 0418/2017
+
+Prikaz profila korisnika
+@version 1.0
+---->
+
 <script>
         localStorage.setItem("pocetna",false);
         localStorage.setItem("udomi",false);

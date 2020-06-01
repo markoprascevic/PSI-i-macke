@@ -1,3 +1,9 @@
+<!----Lazar Smiljković 0125/2017
+
+Forma za registraciju gosta
+@version 1.0
+---->
+
 <script>
         localStorage.setItem("pocetna",false);
         localStorage.setItem("udomi",false);

@@ -1,3 +1,8 @@
+<!----Marko Praščević 0108/2017
+
+Header file za administratora
+@version 1.0
+---->
 <html>
     <head>
         <title>PSI i macke</title>
@@ -94,19 +99,19 @@
                             <div class="col-sm-8" style="padding-top: 35px; ">
                                 <div class="row">
                                     <div class="offset-sm-1 col-sm-2" style="padding: 0px; padding-right: 1px">
-                                        <?php echo anchor("$controller/index",'<button style=" font-size:23px;  height: 50px; width: 100%; border: solid red 2px; background-color: RGB(254,44,1);" type="button" name="Pocetna" class="btn btn-danger button1 buttoni">Početna</button>'); ?>
+                                        <?php echo anchor("$controller/index",'<button style=" font-size:auto;  height: 50px; width: 100%; border: solid red 2px; background-color: RGB(254,44,1);" type="button" name="Pocetna" class="btn btn-danger button1 buttoni">Početna</button>'); ?>
                                     </div>
                                     <div class="col-sm-2" style="padding: 0px; padding-right: 1px">
-                                         <?php echo anchor("$controller/lf",'<button style=" font-size:23px; height: 50px; width: 100%; border: solid red 2px; background-color: RGB(254,44,1);" type="button" name="Lost&Found" class="btn btn-danger button2 buttoni">Lost&Found</button>'); ?>
+                                         <?php echo anchor("$controller/lf",'<button style=" font-size:auto; height: 50px; width: 100%; border: solid red 2px; background-color: RGB(254,44,1);" type="button" name="Lost&Found" class="btn btn-danger button2 buttoni">Lost&Found</button>'); ?>
                                     </div>
                                     <div class="col-sm-2" style="padding: 0px; padding-right: 1px">
-                                         <?php echo anchor("$controller/udomi",'<button style=" font-size:23px; height: 50px; width: 100%; border: solid red 2px; background-color: RGB(254,44,1);" type="button" name="Udomi" class="btn btn-danger button3 buttoni">Udomi</button>'); ?>
+                                         <?php echo anchor("$controller/udomi",'<button style=" font-size:auto; height: 50px; width: 100%; border: solid red 2px; background-color: RGB(254,44,1);" type="button" name="Udomi" class="btn btn-danger button3 buttoni">Udomi</button>'); ?>
                                     </div>
                                     <div class="col-sm-2" style="padding: 0px; padding-right: 1px">
-                                        <?php echo anchor("$controller/srecnePrice",'<button style=" font-size:23px; height: 50px; width: 100%; border: solid red 2px; background-color: RGB(254,44,1);" type="button" name="SrecnePrice" class="btn btn-danger button4 buttoni">Srećne Priče</button>'); ?>
+                                        <?php echo anchor("$controller/srecnePrice",'<button style=" font-size:auto; height: 50px; width: 100%; border: solid red 2px; background-color: RGB(254,44,1);" type="button" name="SrecnePrice" class="btn btn-danger button4 buttoni">Srećne Priče</button>'); ?>
                                     </div>
                                     <div class="col-sm-2" style="padding: 0px; padding-right: 1px">
-                                         <?php echo anchor("$controller/administrator",'<button style=" font-size:23px; height: 50px; width: 100%; border: solid red 2px; background-color: RGB(254,44,1);" type="button" name="Administrator" class="btn btn-danger button6 buttoni">Administrator</button>'); ?>
+                                         <?php echo anchor("$controller/administrator",'<button style="font-size:auto; height: 50px; width: 100%; border: solid red 2px; background-color: RGB(254,44,1);" type="button" name="Administrator" class="btn btn-danger button6 buttoni">Administrator</button>'); ?>
                                     </div>                                    
                                 </div>
                             </div>

@@ -1,3 +1,9 @@
+<!----Marko Prašćević 0108/2017
+
+Stranica za prikaz Udomi oglasa za admina
+@version 1.0
+---->
+
 <script>
         localStorage.setItem("pocetna",false);
         localStorage.setItem("udomi",true);

@@ -1,3 +1,9 @@
+<!----Anja Pantović 0418/2017
+
+Forma za postavljanje zalbe (korisnik)
+@version 1.0
+---->
+
 <script>
         localStorage.setItem("pocetna",false);
         localStorage.setItem("udomi",false);

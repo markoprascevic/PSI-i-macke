@@ -1,4 +1,8 @@
+<!----Marko Praščević 0108/2017
 
+Pocetna(index) stranica za gosta i korisnika
+@version 1.0
+---->
 
 <h1 style="text-align: center; margin-bottom: 2%; color: RGB(254,44,1);"> <i>O nama</i></h1>
 <div class="row onama">

@@ -2,6 +2,13 @@
 
 use CodeIgniter\Model;
 
+/*Marko Praščević 0108/2017
+
+Klasa LF koja predstavlja tabelu Lost&Found oglasa u bazi
+@version 1.0
+*/
+
+
 class LFModel extends Model
 {
     protected $table      = 'lf';

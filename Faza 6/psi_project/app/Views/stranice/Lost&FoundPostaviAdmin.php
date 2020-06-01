@@ -1,3 +1,9 @@
+<!----Jovana Jelčić 0082/2017
+
+Forma za postavljanje Lost&Found oglasa za admina
+@version 1.0
+---->
+
 <style>
     #gradforma {
         background: RGB(254,44,1); /* For browsers that do not support

@@ -1,3 +1,9 @@
+<!----Lazar Smiljković 0125/2017
+
+Stranica za prikaz svih korisnika radi blokiranja od strane admina
+@version 1.0
+---->
+
 <script>
         localStorage.setItem("pocetna",false);
         localStorage.setItem("udomi",false);

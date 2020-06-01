@@ -6,15 +6,29 @@ use App\Models\Oglasi;
 use App\Models\UdomiModel;
 use App\Models\KorisnikModel;
 
+/*Marko Praščević 0108/2017
+      Anja Patnović 0418/2017
+
+Controller za gosta
+@version 1.0
+*/
+
 class Gost extends BaseController
 {
+/* @ret void
+ * @param $page stranica za prikaz, $data podaci koji se koristi na html stranici, $data2 podaci za header
+ * Koristi se za prikaz html stranica
+ * 
+ */
      protected function prikaz($page,$data, $data2){
         $data['controller']='Gost';
         echo view('sabloni/header_gost.php', $data);
         echo view($page,$data2);
         echo view('sabloni/footer.php');
     }
-    
+/*
+ * prikaz pocetne stranice za gosta
+ */    
     public function index(){
         $vestiModel=new VestiModel();
         $vesti=$vestiModel->findAll();
@@ -23,7 +37,9 @@ class Gost extends BaseController
         $slike=$slikaModel->findAll();
         $this->prikaz('Views/stranice/Pocetna.php', ['slike'=>$slike],['vesti'=>$vesti]);
     }
-
+/*
+ * prikaz stranice sa lf oglasima
+ */    
     public function lf(){
         $lfModel=new LFModel();
         $oglasi=$lfModel->findAll();
@@ -34,7 +50,9 @@ class Gost extends BaseController
         $this->prikaz('Views/stranice/Lost&Found.php', ['slike'=>$slike], ['oglasi'=>$oglasi]);
     }
 	//--------------------------------------------------------------------
-    
+/*
+ * pretraga lf oglasa prema podacima unetim sa forme
+ */        
     public function lfPretrazi(){
         $ip=$_GET['izgpro'];
         $v=$_GET['vrsta'];
@@ -73,29 +91,41 @@ class Gost extends BaseController
             $this->prikaz('Views/stranice/Lost&Found.php', ['slike'=>$slike], ['oglasi'=>$oglasi]);
         }
     }
-    
+/*
+ * prikaz stranice "nema pristupa"
+ */        
     public function nemaPristupU() {
         $slikaModel=new SlikeModel();
         $slike=$slikaModel->findAll();
         $this->prikaz('Views/stranice/nemaPristupU.php', ['slike'=>$slike], []);
     }
+/*
+ * prikaz stranice "nema pristupa"
+ */       
     public function nemaPristupS() {
         $slikaModel=new SlikeModel();
         $slike=$slikaModel->findAll();
         $this->prikaz('Views/stranice/nemaPristupS.php', ['slike'=>$slike], []);
     }
+/*
+ * prikaz stranice "nema pristupa"
+ */       
     public function nemaPristupZ() {
         $slikaModel=new SlikeModel();
         $slike=$slikaModel->findAll();
         $this->prikaz('Views/stranice/nemaPristupZ.php', ['slike'=>$slike], []);
     }
-    
+/*
+ * prikaz forme za logovanje gosta
+ */          
     public function login($poruka=null) {
         $slikaModel=new SlikeModel();
         $slike=$slikaModel->findAll();
         $this->prikaz("stranice/login", ['slike'=>$slike], ['poruka'=>$poruka]);
     }
-    
+/*
+ * logovanje na servis ako postoji nalog sa zadatim podacima
+ */           
     public function loginSubmit() {
         $slikaModel=new SlikeModel();
         $slike=$slikaModel->findAll();
@@ -118,13 +148,17 @@ class Gost extends BaseController
             return redirect()->to(site_url('Admin'));
         }
     }
-    
+/*
+ * prikaz stranice sa formom za registraciju
+ */           
     public function register($greske=[]) {
         $slikaModel=new SlikeModel();
         $slike=$slikaModel->findAll();
         $this->prikaz("stranice/register", ['slike'=>$slike], ['greske'=>$greske]);
     }
-    
+/*
+ * registrovanje korisnika i dodavanje u bazu
+ */           
     public function registerSubmit() {
         
         $imeiprezime=$this->request->getVar('imeiprezime');

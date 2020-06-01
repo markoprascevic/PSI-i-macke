@@ -8,8 +8,20 @@ use App\Models\KorisnikModel;
 use App\Models\SrecnaModel;
 use App\Models\ZalbeModel;
 
+/*----Lazar Smiljković 0125/2017
+
+Controller za administratora
+@version 1.0
+*/
+
 class Admin extends BaseController
 {
+
+/* @ret void
+ * @param $page stranica za prikaz, $data podaci koji se koristi na html stranici, $data2 podaci za header
+ * Koristi se za prikaz html stranica
+ * 
+ */
     protected function prikaz($page,$data, $data2){
         $data['controller']='Admin';
         $_SESSION['curUser'] = $this->session->get('korisnik')->username;
@@ -19,6 +31,9 @@ class Admin extends BaseController
         echo view('sabloni/footer.php');
     }
     
+/*
+ * prikaz pocetne stranice administratora
+ */
     public function index(){
         $vestiModel=new VestiModel();
         $vesti=$vestiModel->findAll();
@@ -27,7 +42,9 @@ class Admin extends BaseController
         $slike=$slikaModel->findAll();
         $this->prikaz('Views/stranice/PocetnaAdmin.php', ['slike'=>$slike], ['slike'=>$slike, 'vesti'=>$vesti]);
     }
-    
+ /*
+ * prikaz stranice Lost&Found za administratora
+ */
     public function lf(){
         $lfModel=new LFModel();
         $oglasi=$lfModel->findAll();
@@ -38,7 +55,9 @@ class Admin extends BaseController
         $this->prikaz('Views/stranice/Lost&FoundAdmin.php', ['slike'=>$slike], ['slike'=>$slike, 'oglasi'=>$oglasi]);
     }
 	//--------------------------------------------------------------------
-    
+ /*
+ * pretraga Lost&Found oglasa za administratora
+ */   
     public function lfPretrazi(){
         $ip=$this->request->getVar('izgpro');
         $v=$this->request->getVar('vrsta');
@@ -80,6 +99,9 @@ class Admin extends BaseController
         
         //--------------------------------------------------------------------
     
+ /*
+ * brisanje vesti sa pocetne strane
+ */
     
     public function brisiVest($id){
         $vestiModel=new VestiModel();
@@ -90,7 +112,10 @@ class Admin extends BaseController
         
         return redirect()->to(site_url("Admin/index"));
     }
-    
+ /*
+  * @param $id identifikator oglasa
+ * brisanje oglasa sa zadatim id-om
+ */
     public function brisiOglas($id){        
         $lfModel=new LFModel();
         $lfModel->delete($id);
@@ -106,6 +131,9 @@ class Admin extends BaseController
     
     
     //-------------------------------------------------------------------------------
+ /*
+ * prikaz stranice Udomi za administratora
+ */
     public function udomi(){
         $udomiModel=new UdomiModel();
         $oglasi=$udomiModel->findAll();
@@ -116,7 +144,9 @@ class Admin extends BaseController
         $this->prikaz('Views/stranice/UdomiAdmin.php', ['slike'=>$slike], ['oglasi'=>$oglasi]);
     }
     
-    
+ /*
+ * pretraga udomi oglasa kroz formu
+ */    
     public function udomiPretrazi() {
         $od=$_GET['starostOd'];
         $do=$_GET['starostDo'];
@@ -161,7 +191,10 @@ class Admin extends BaseController
             $this->prikaz('Views/stranice/UdomiAdmin.php', ['slike'=>$slike], ['oglasi'=>$oglasi]);
         }
     }
-    
+ /*
+  * @param $id jedinstveni identifikator oglasa
+ * brisanje udomi oglasa sa udomi stranice
+ */    
     public function brisiUdomi($id) {
         $udomiModel=new UdomiModel();
         $udomiModel->delete($id);
@@ -176,17 +209,25 @@ class Admin extends BaseController
         return redirect()->to(site_url("Admin/udomi"));
     }
     
+ /*
+ * odjavljivanje korisnika sa servisa
+ */
     public function logout(){
         $this->session->destroy();
         return redirect()->to(site_url('/'));
     }
-    
+ /*
+ * prikaz stranice sa funkcijama za administratora
+ */    
     public function administrator() {    
         $slikaModel=new SlikeModel();
         $slike=$slikaModel->findAll();
         $this->prikaz('stranice/Administrator.php', ['slike'=>$slike], []);
     }
-    
+
+ /*
+ * brisanje oglasa sa stranice na kojoj su oglasi svih vrsta
+ */    
     public function izbrisiOglas() {
         $slikaModel=new SlikeModel();
         $slike=$slikaModel->findAll();
@@ -194,7 +235,9 @@ class Admin extends BaseController
         $oglasi=$oglasiModel->findAll();
         $this->prikaz('Views/stranice/obrisiOglas.php', ['slike'=>$slike], ['oglasi'=>$oglasi, 'greska'=>""]);
     }
-    
+ /*
+ * pretraga oglasa na stranici na kojoj su oglasi svih vrsta
+ */    
     public function pretraziOglas() {
         $slikaModel=new SlikeModel();
         $slike=$slikaModel->findAll();
@@ -223,7 +266,10 @@ class Admin extends BaseController
             }
         }
     }
-    
+ /*
+  * @param $id jedinstveni identifikator oglasa
+ * brisanje oglasa sa stranice na kojoj su oglasi svih vrsta
+ */    
     public function brisanje($id) {
         $udomiModel=new UdomiModel();
         $udomiModel->delete($id);
@@ -233,7 +279,10 @@ class Admin extends BaseController
         $oglasM->delete($id);       
         return redirect()->to(site_url("Admin/izbrisiOglas"));
     }
-    
+ /*
+  * @param $username korisnicko ime korisnika
+ * prikaz stranice sa spiskom korisnika i blokiranje odabranog korisnika po username-u
+ */    
     public function blokiraj($username) {
         $slikaModel=new SlikeModel();
         $slike=$slikaModel->findAll();
@@ -253,7 +302,10 @@ class Admin extends BaseController
         
     }
     
-    
+ /*
+  * @param $greska poruka o gresci koja se ispisuje na stranici
+ * pretraga korisnika po korisnickom imenu radi blokiranja
+ */    
     public function pretraziKorisnika($greska="") {
         $slikaModel=new SlikeModel();
         $slike=$slikaModel->findAll();
@@ -273,7 +325,9 @@ class Admin extends BaseController
             else $this->prikaz('stranice/blokirajKorisnika.php', ['slike'=>$slike], ['korisnici'=>[$korisnik], 'greska'=>"Korisnik pronadjen"]);         
         }
     }
-    
+ /*
+ * prikaz stranice Srecne price za administratora
+ */    
     public function srecnePrice() {
         $slikaModel=new SlikeModel();
         $slike=$slikaModel->findAll();
@@ -281,18 +335,27 @@ class Admin extends BaseController
         $price=$priceModel->findAll();
         $this->prikaz('stranice/SrecnePriceAdmin.php',['slike'=>$slike],['price'=>$price]);
     }
+ /*
+  * @param $greska poruka o gresci koja ce se ispisati nakon neregularne situacije
+ * prikaz forme za postavljanje srecne price
+ */
     public function postaviSrecnuPricu($greska="") {
         $slikaModel=new SlikeModel();
         $slike=$slikaModel->findAll();
         $this->prikaz('stranice/postaviSrecnuPricu.php',['slike'=>$slike],['greska'=>$greska]);
     }
-    
+ /*
+  * @param $id identifikator srecne price
+ * brisanje odabrane srecne price
+ */   
     public function brisiPricu($id){
         $priceM = new SrecnaModel();
         $priceM->where('srecnapricaId', $id)->delete();
         return redirect()->to(site_url("Admin/srecnePrice"));
     }
-    
+ /*   
+ * dodavanje srecne price na osnovu podataka unetih u formu
+ */   
     public function srecnaPricaSubmit() {
         if (count($_FILES) > 0) {
             if (is_uploaded_file($_FILES['myfile']['tmp_name'])) {
@@ -320,13 +383,18 @@ class Admin extends BaseController
         ]);
         return redirect()->to(site_url("Admin/srecneprice"));
     }
-    
+/*
+ * @param $greska poruka o gresci koja ce se ispisati
+* prikaz stranice sa dodavanje nove vesti
+*/
     public function postaviVest($greska="") {
         $slikeModel=new SlikeModel();
         $slike=$slikeModel->findAll();
         $this->prikaz("stranice/postaviVest.php",['slike'=>$slike],['greska'=>$greska]);
     }
-    
+/*
+* dodavanje nove vesti u bazu 
+*/    
     public function vestSubmit() {
         if (count($_FILES) > 0) {
             if (is_uploaded_file($_FILES['myfile']['tmp_name'])) {
@@ -356,7 +424,9 @@ class Admin extends BaseController
         ]);
         return redirect()->to(site_url("Admin/index"));
     }
-    
+/*
+* prikaz stranice sa zalabama korisnika
+*/    
     public function zalbe($zalbe=null, $greska="") {
         $slikeModel=new SlikeModel();
         $slike=$slikeModel->findAll();
@@ -366,7 +436,9 @@ class Admin extends BaseController
         }
         $this->prikaz("stranice/zalbe",['slike'=>$slike],['zalbe'=>$zalbe, 'greska'=>$greska]);
     }
-    
+/*
+*pretraga zalbi po username-u korisnika
+*/    
     public function zalbePretrazi() {
         $slikeModel=new SlikeModel();
         $slike=$slikeModel->findAll();
@@ -382,7 +454,10 @@ class Admin extends BaseController
             return $this->zalbe($zalba, $greska);
         }
     }
-    
+/*
+ * @param $id identifikator zalbe
+* brisanje odabrane zalbe
+*/    
     public function brisiZalbu($id) {
         $zalbeModel = new ZalbeModel();
         $zalbeModel->where('zalbaId',$id)->delete();
@@ -390,7 +465,10 @@ class Admin extends BaseController
     }
     
     
-    
+/*
+ * @param $greska poruka o gresci koja ce se ispisati
+* prikaz stranice za dodavanje LF oglasa
+*/    
     public function postaviLF($greska=""){
         
         $slikaModel=new SlikeModel();
@@ -398,7 +476,9 @@ class Admin extends BaseController
         $this->prikaz('Views/stranice/Lost&FoundPostaviAdmin.php', ['slike'=>$slike],['greska'=>$greska]);
     }
     
-    
+/*
+* dodavanje LF oglasa
+*/    
     public function lfSubmit() {
         if (count($_FILES) > 0) {
             if (is_uploaded_file($_FILES['myfile2']['tmp_name'])) {
@@ -481,13 +561,18 @@ class Admin extends BaseController
 
 
     
-    
+/*
+ * @param $greska poruka o gresci koja ce se ispisati pri neregularnoj situaciji
+* prikaz forme za dodavanje udomi oglasa
+*/    
     public function udomiPostavi($greska="") {
         $slikaModel=new SlikeModel();
         $slike=$slikaModel->findAll();
         $this->prikaz('Views/stranice/udomiPostaviAdmin.php', ['slike'=>$slike],['greska'=>$greska]);
     }
-    
+/*
+* dodavanje novog udomi oglasa u bazu
+*/    
     public function udomiSubmit() {
         if (count($_FILES) > 0) {
             if (is_uploaded_file($_FILES['myFile3']['tmp_name'])) {
@@ -573,6 +658,10 @@ class Admin extends BaseController
         
         return redirect()->to(site_url("Admin/udomi"));
     }
+    
+/*
+* prikaz profila admina
+*/
     public function profil() {
         $slikaModel=new SlikeModel();
         $slike=$slikaModel->findAll();
@@ -581,7 +670,10 @@ class Admin extends BaseController
         $korisnik= $this->session->get('korisnik');
         $this->prikaz('stranice/mojprofil.php',['slike'=>$slike], ['korisnik'=>$korisnik, 'oglasi'=>$oglasi]);
     }
-    
+/*
+ * @param $greska poruka o gresci
+* prikaz forme za izmenu informacija za admina
+*/    
     public function izmeniInfo($greske=[]) {
         $slikaModel=new SlikeModel();
         $slike=$slikaModel->findAll();
@@ -589,6 +681,9 @@ class Admin extends BaseController
         $this->prikaz('stranice/izmeniinfo.php',['slike'=>$slike], ['greske'=>$greske, 'korisnik'=>$korisnik]);
     }
     
+/*
+* azuriranje baze izmenjenim informacija o korisniku
+*/
     public function izmeniSubmit() {
         $lozinka=$this->request->getVar('lozinka');
         $ponloz=$this->request->getVar('ponloz');
@@ -646,7 +741,9 @@ class Admin extends BaseController
         $this->session->set('korisnik',$korisnikModel->find($korime));
         return redirect()->to(site_url("Admin/profil"));
     }
-    
+/*
+* prikaz svih oglasa admina
+*/    
     public function mojiOglasi() {
         $slikaModel=new SlikeModel();
         $slike=$slikaModel->findAll();
@@ -654,7 +751,10 @@ class Admin extends BaseController
         $oglasi=$oglasiModel->findByUsername($this->session->get('korisnik')->username);
         $this->prikaz('stranice/mojiOglasi.php', ['slike'=>$slike], ['oglasi'=>$oglasi]);
     }
-    
+/*
+ * @param $id identifikator oglasa izabranog za brisanje
+* brisanje zadatog licnog oglasa admina
+*/    
     public function mojBrisi($id) {
         $oglasiModel=new Oglasi();
         $udomiModel=new UdomiModel();
