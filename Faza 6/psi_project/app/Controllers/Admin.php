@@ -288,9 +288,17 @@ class Admin extends BaseController
         $slike=$slikaModel->findAll();
         $korisnikModel=new KorisnikModel();
         $korisnik=$korisnikModel->find($username);
-        $korisnici=$korisnikModel->findAll();
         
         if ($korisnik->admin!=1) {
+            $oglasiModel=new Oglasi();
+            $oglasi=$oglasiModel->findByUsername($username);
+            foreach ($oglasi as $oglas) {
+                $udomiModel=new UdomiModel();
+                $udomiModel->delete($oglas->oglasId);
+                $lfModel=new LFModel();
+                $lfModel->delete($oglas->oglasId);
+                $oglasiModel->delete($oglas->oglasId);  
+            }
             $korisnikModel->where('username',$username)->delete();
             $greska="Korisnik uspešno blokiran";
             return redirect()->to(site_url("Admin/pretraziKorisnika/{$greska}"));
