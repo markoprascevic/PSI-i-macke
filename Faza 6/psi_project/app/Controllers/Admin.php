@@ -291,7 +291,7 @@ class Admin extends BaseController
         $korisnici=$korisnikModel->findAll();
         
         if ($korisnik->admin!=1) {
-            $korisnikModel->delete($username);
+            $korisnikModel->where('username',$username)->delete();
             $greska="Korisnik uspešno blokiran";
             return redirect()->to(site_url("Admin/pretraziKorisnika/{$greska}"));
         }
