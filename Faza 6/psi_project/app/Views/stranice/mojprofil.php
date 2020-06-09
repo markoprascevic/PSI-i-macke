@@ -76,7 +76,7 @@ Prikaz profila korisnika
                     if ($i==0);
                 }
                 for ($i=$duzina; $i<2; $i++) {
-                    echo "<tr><td class='td2'>"."<img style='width:30%;' src='data:image/jpeg;base64,".base64_encode($slike[11]->slika)."'>"."<td/></tr><tr><td class='td2'>Oglas".($i+1)."<td/></tr>";    
+                    echo "<tr><td class='td2'>"."<img style='width:30%;' src='data:image/jpeg;base64,".base64_encode($slike[10]->slika)."'>"."<td/></tr><tr><td class='td2'>Oglas".($i+1)."<td/></tr>";    
                 }
                 echo "<tr><td class='td2'><a href='mojiOglasi'><b>Vidi sve>></b></a></td></tr>"
             ?>
