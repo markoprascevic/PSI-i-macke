@@ -30,7 +30,7 @@ Forma za postavljanje vesti (admin)
 
 <div class="row">
     <div class="offset-sm-1 col-sm-11" style="text-align: center; color: RGB(254,44,1);">
-        <h3>Postavite srećnu priču</h3>
+        <h3>Postavite vest</h3>
     </div>
 </div>
 <div class="row" style="margin-top: 50px">
