@@ -1,3 +1,9 @@
+<!----Anja Pantović 0418/2017
+
+Forma za izemenu informacija o korisnickom profilu
+@version 1.0
+---->
+
 <script>
         localStorage.setItem("lf",false);
         localStorage.setItem("udomi",false);
@@ -128,7 +134,7 @@
                     </tr>
                     <tr>
                         <td colspan="4" style="text-align: center;">
-                            <input type="submit" style="border-radius: 10px; background:RGB(234,44,6); color:white;" value="Potvrdi">
+                            <input onclick='return confirm("Da li ste sigurni da zelite da izmenite informacije?");'  type="submit" style="border-radius: 10px; background:RGB(234,44,6); color:white;" value="Potvrdi">
                         </td>
                     </tr>
                 </table>

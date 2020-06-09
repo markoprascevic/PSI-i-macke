@@ -1,3 +1,9 @@
+<!----Jovana Jelčić 0082/2017
+
+Stranica za prikaz srecnih prica za admina
+@version 1.0
+---->
+
 <script>
         localStorage.setItem("pocetna",false);
         localStorage.setItem("udomi",false);
@@ -13,7 +19,7 @@
 <!-- Oglasi iz baze -->
 
 
-<h2 style="text-align: center !important; color: RGB(254,44,1); margin-top: 5%;"> <i>Srecne price</i></h2>
+<h2 style="text-align: center !important; color: RGB(254,44,1); margin-top: 5%;"> <i>Srećne priče</i></h2>
 <table class="table" style="margin-top: 2%; margin-bottom: 5%">
 <?php
 $i=0;
@@ -24,7 +30,7 @@ foreach ($price as $prica) {
     
         
         echo '<tr style="background-color: rgba(148,69,69,0.04)"><td><table class="table-borderless"><tr><td style="text-align: right"><i> Obriši srećnu priču: ';
-        echo anchor("$controller/brisiPricu/{$prica->srecnapricaId}",'<img style=" width:30px" src='.$putanja.'></i><hr></td></tr>');
+        echo anchor("$controller/brisiPricu/{$prica->srecnapricaId}",'<img style=" width:30px" onclick="return confirm(\' Da li ste sigurni da zelite da obrisete objavu? \');" src='.$putanja.'></i><hr></td></tr>');
         echo '<tr><td style="width:30%;"><img style="width:100%;" src="data:image/jpeg;base64,'.base64_encode( $prica->slika ).'"/></td></tr><tr><td>'.$prica->opis.'</td></tr></table></tr>';
     
 } 

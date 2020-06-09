@@ -1,4 +1,8 @@
+<!----Marko Praščević 0108/2017
 
+Pocetna(index) stranica za admina
+@version 1.0
+---->
 
 <h1 style="text-align: center; margin-bottom: 2%; color: RGB(254,44,1);"> <i>O nama</i></h1>
 <div class="row onama">
@@ -51,12 +55,12 @@ $n=1;
 foreach ($vesti as $vest) {
     if(($i % 2)==0){
         echo '<tr><td colspan="2" style="text-align:right"><i>Obriši vest ispod: </i>';
-        echo anchor("$controller/brisiVest/{$vest->vestId}",'<img style=" width:30px" src='.$putanja.'>');
+        echo anchor("$controller/brisiVest/{$vest->vestId}",'<input type="image" onclick="return confirm(\' Da li ste sigurni da zelite da obrisete objavu? \');" style=" width:30px" src='.$putanja.'>');
         echo '</td></tr><tr><td colspan="2" style="text-align:center;padding-top:25px; padding-bottom:10px; background-color: rgba(148,69,69,0.04); color:red; font-style:italic;"><h3>'.$vest->naslov. '</h3></td></tr><tr style="background-color: rgba(148,69,69,0.04)"><td style="width:30%;"><img style="width:100%;" src="data:image/jpeg;base64,'.base64_encode( $vest->slika ).'"/></td><td style="padding-left:1%; text-align: justify; font-size: 18px; font-weight: 400" >'.$vest->opis. '</td></tr>';
     }
     else{
         echo '<tr><td colspan="2" style="text-align:right"><i>Obriši vest ispod: </i>';
-        echo anchor("$controller/brisiVest/{$vest->vestId}",'<img style="width:30px" src='.$putanja.'>');
+        echo anchor("$controller/brisiVest/{$vest->vestId}",'<input type="image" onclick="return confirm(\' Da li ste sigurni da zelite da obrisete objavu? \');" style="width:30px" src='.$putanja.'>');
         echo '</td></tr><tr><td colspan="2" style="text-align:center;padding-top:25px; padding-bottom:10px; background-color: rgba(148,69,69,0.04); color:red; font-style:italic;"><h3>'.$vest->naslov. '</h3></td></tr><tr style="background-color: rgba(148,69,69,0.04)"><td style="padding-right:1%; text-align: justify; font-size: 18px; font-weight: 400" >'.$vest->opis. '</td><td style="width:30%;"><img style="width:100%;" src="data:image/jpeg;base64,'.base64_encode( $vest->slika ).'"/></td></tr>';
     }
     $i=$i+1;

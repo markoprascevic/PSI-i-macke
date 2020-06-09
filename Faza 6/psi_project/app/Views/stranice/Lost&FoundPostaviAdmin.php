@@ -1,3 +1,9 @@
+<!----Jovana Jelčić 0082/2017
+
+Forma za postavljanje Lost&Found oglasa za admina
+@version 1.0
+---->
+
 <style>
     #gradforma {
         background: RGB(254,44,1); /* For browsers that do not support
@@ -133,7 +139,7 @@
                 </tr>
                 <tr> 
                     <td colspan="10" style="text-align: right; padding-top: 50px; padding-right:10%">
-                        <input type="submit" style="border-radius: 10px; background:RGB(234,44,6); color:white;" value="Postavi oglas">
+                        <input type="submit" style="border-radius: 10px; background:RGB(234,44,6); color:white;" onclick='return confirm("Da li ste sigurni da zelite da postavite oglas?")' value="Postavi oglas">
                     </td>
                 </tr>
 

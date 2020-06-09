@@ -1,3 +1,9 @@
+<!----Anja Pantović 0418/2017
+
+Stranica za prikaz svih zalbi i njihovo brisanja
+@version 1.0
+---->
+
 <script>
         localStorage.setItem("pocetna",false);
         localStorage.setItem("udomi",false);
@@ -28,13 +34,13 @@
 </form>
 
 <div style="color: red; font-size: 25px;"><?php if ($greska!="") echo urldecode($greska); ?></div>
-<h2 style="text-align: center !important; color: RGB(254,44,1); margin-top: 2%;"> <i>Zalbe</i></h2>
+<h2 style="text-align: center !important; color: RGB(254,44,1); margin-top: 2%;"> <i>Žalbe</i></h2>
 
 <?php
     $putanja="'data:image/jpeg;base64,".base64_encode( $slike[8]->slika )."'";
     foreach( $zalbe as $zalba){
         echo "<table style='margin-top: 3%; margin-bottom: 5%'>";
-        echo "<tr><td>Korisnik:</td><td><b>".$zalba->username."</b></td><td></td><td></td><td>ID: &nbsp;&nbsp;".$zalba->zalbaId."</td><td>".anchor("Admin/brisiZalbu/{$zalba->zalbaId}",'<img style=" width:30px" src='.$putanja.'>')."</td></tr>";
+        echo "<tr><td>Korisnik:</td><td><b>".$zalba->username."</b></td><td></td><td></td><td>ID: &nbsp;&nbsp;".$zalba->zalbaId."</td><td>".anchor("Admin/brisiZalbu/{$zalba->zalbaId}",'<input type="image" onclick="return confirm(\' Da li ste sigurni da zelite da obrisete zalbu? \');"  style=" width:30px" src='.$putanja.'>')."</td></tr>";
         echo "<tr><td id='opis' colspan='4'>".$zalba->opis."</td><td></td></tr>";
         echo "</table>";
     }

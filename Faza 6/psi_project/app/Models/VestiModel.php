@@ -2,6 +2,13 @@
 
 use CodeIgniter\Model;
 
+/*Marko Praščević 0108/2017
+
+Klasa KorisnikModel koja predstavlja tabelu vest u bazi
+@version 1.0
+*/
+
+
 class VestiModel extends Model
 {
     protected $table      = 'vest';

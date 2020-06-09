@@ -1,3 +1,9 @@
+<!----Jovana Jelčić 0082/2017
+
+Stranica za prikaz srecnih prica
+@version 1.0
+---->
+
 <script>
         localStorage.setItem("pocetna",false);
         localStorage.setItem("udomi",false);
@@ -13,7 +19,7 @@
 <!-- Oglasi iz baze -->
 
 
-<h2 style="text-align: center !important; color: RGB(254,44,1); margin-top: 5%;"> <i>Srecne price</i></h2>
+<h2 style="text-align: center !important; color: RGB(254,44,1); margin-top: 5%;"> <i>Srećne priče</i></h2>
 <table class="table" style="margin-top: 2%; margin-bottom: 5%">
 <?php
 

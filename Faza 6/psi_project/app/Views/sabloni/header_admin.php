@@ -1,3 +1,8 @@
+<!----Marko Praščević 0108/2017
+
+Header file za administratora
+@version 1.0
+---->
 <html>
     <head>
         <title>PSI i macke</title>
@@ -88,22 +93,36 @@
                         <?php echo '<a href="index"><img style="width:130px; " src="data:image/jpeg;base64,'.base64_encode( $slike[7]->slika ).'"/></a>';?>
                     </div>
 
-                    <div class="offset-sm-2 col-sm-9">
+                    <div class="offset-sm-2 col-sm-9" >
 
-                        <div class="row">
-                            <div class="col-sm-10" style="margin:0px; margin-top:35px !important; padding: 0px;">
-                                <?php echo anchor("$controller/index",'<button style=" font-size:23px; height: 50px; width: 190px; border: solid red 2px; background-color: RGB(254,44,1);" type="button" name="Pocetna" class="btn btn-danger button1 buttoni">Početna</button>'); ?>
-                                <?php echo anchor("$controller/lf",'<button style=" font-size:23px; height: 50px; width: 190px; border: solid red 2px; background-color: RGB(254,44,1);" type="button" name="Lost&Found" class="btn btn-danger button2 buttoni">Lost&Found</button>'); ?>
-                                <?php echo anchor("$controller/udomi",'<button style=" font-size:23px; height: 50px; width: 190px; border: solid red 2px; background-color: RGB(254,44,1);" type="button" name="Udomi" class="btn btn-danger button3 buttoni">Udomi</button>'); ?>
-                                <?php echo anchor("$controller/srecnePrice",'<button style=" font-size:23px; height: 50px; width: 190px; border: solid red 2px; background-color: RGB(254,44,1);" type="button" name="SrecnePrice" class="btn btn-danger button4 buttoni">Srećne Priče</button>'); ?>
-                                <?php echo anchor("$controller/administrator",'<button style=" font-size:23px; height: 50px; width: 190px; border: solid red 2px; background-color: RGB(254,44,1);" type="button" name="Administrator" class="btn btn-danger button6 buttoni">Administrator</button>'); ?>
-                                
+                        <div class="row" >
+                            <div class="col-sm-8" style="padding-top: 35px; ">
+                                <div class="row">
+                                    <div class="offset-sm-1 col-sm-2" style="padding: 0px; padding-right: 1px">
+                                        <?php echo anchor("$controller/index",'<button style=" font-size:auto;  height: 50px; width: 100%; border: solid red 2px; background-color: RGB(254,44,1);" type="button" name="Pocetna" class="btn btn-danger button1 buttoni">Početna</button>'); ?>
+                                    </div>
+                                    <div class="col-sm-2" style="padding: 0px; padding-right: 1px">
+                                         <?php echo anchor("$controller/lf",'<button style=" font-size:auto; height: 50px; width: 100%; border: solid red 2px; background-color: RGB(254,44,1);" type="button" name="Lost&Found" class="btn btn-danger button2 buttoni">Lost&Found</button>'); ?>
+                                    </div>
+                                    <div class="col-sm-2" style="padding: 0px; padding-right: 1px">
+                                         <?php echo anchor("$controller/udomi",'<button style=" font-size:auto; height: 50px; width: 100%; border: solid red 2px; background-color: RGB(254,44,1);" type="button" name="Udomi" class="btn btn-danger button3 buttoni">Udomi</button>'); ?>
+                                    </div>
+                                    <div class="col-sm-2" style="padding: 0px; padding-right: 1px">
+                                        <?php echo anchor("$controller/srecnePrice",'<button style=" font-size:auto; height: 50px; width: 100%; border: solid red 2px; background-color: RGB(254,44,1);" type="button" name="SrecnePrice" class="btn btn-danger button4 buttoni">Srećne Priče</button>'); ?>
+                                    </div>
+                                    <div class="col-sm-2" style="padding: 0px; padding-right: 1px">
+                                         <?php echo anchor("$controller/administrator",'<button style="font-size:auto; height: 50px; width: 100%; border: solid red 2px; background-color: RGB(254,44,1);" type="button" name="Administrator" class="btn btn-danger button6 buttoni">Administrator</button>'); ?>
+                                    </div>                                    
+                                </div>
                             </div>
-                            <div class="col-sm-1" style="margin-top: 20px; text-align: right">
-                                <?php echo anchor("Admin/profil",'<img style="width:40px; " src="data:image/jpeg;base64,'.base64_encode( $slike[5]->slika ).'">');?>
+                            
+                            <div class="col-sm-2" style="margin-top: 30px; text-align: right; font-size: 20px; color: white; text-align: right">
+                                <?php echo "<i>". $_SESSION['curUser']. "</i>"?>
                             </div>
-                            <div class="col-sm-1" style="margin-top: 20px;">
-                                <?php echo anchor("Admin/logout",'<img style="width:40px; " src="data:image/jpeg;base64,'.base64_encode( $slike[6]->slika ).'">');?>
+                            <div class="col-sm-2" style="margin-top: 20px; text-align: center;">
+                                <?php echo anchor("Admin/profil",'<img style="width:20%; margin-right:10% " src="data:image/jpeg;base64,'.base64_encode( $slike[5]->slika ).'">');?>
+                           
+                                <?php echo anchor("Admin/logout",'<img style="width:20%; " src="data:image/jpeg;base64,'.base64_encode( $slike[6]->slika ).'">');?>
                             </div>
                         </div> 
                     </div>

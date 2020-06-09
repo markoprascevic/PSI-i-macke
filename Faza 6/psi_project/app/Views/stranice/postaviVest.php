@@ -1,3 +1,9 @@
+<!----Lazar Smiljković 0125/2017
+
+Forma za postavljanje vesti (admin)
+@version 1.0
+---->
+
 <script>
         localStorage.setItem("pocetna",false);
         localStorage.setItem("udomi",false);
@@ -24,7 +30,7 @@
 
 <div class="row">
     <div class="offset-sm-1 col-sm-11" style="text-align: center; color: RGB(254,44,1);">
-        <h3>Postavite srećnu priču</h3>
+        <h3>Postavite vest</h3>
     </div>
 </div>
 <div class="row" style="margin-top: 50px">
@@ -56,7 +62,7 @@
                     <textarea placeholder="Unesite opis..." name='opis' style="width:100%;" rows="6" id="gradijent"></textarea> 
                 </div>
                 <div class="col-sm-2" style="padding-top:18%; padding-left: 15%">
-                    <input type="submit" value="Postavite vest" name="submit" style="text-align: right; border-radius: 15px; color:white; background-color: RGB(254,44,1);">
+                    <input onclick='return confirm("Da li ste sigurni da zelite da postavite vest?")' type="submit" value="Postavite vest" name="submit" style="text-align: right; border-radius: 15px; color:white; background-color: RGB(254,44,1);">
                 </div>
             </div> 
         </form>     

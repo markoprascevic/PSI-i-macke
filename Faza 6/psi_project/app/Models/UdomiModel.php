@@ -2,6 +2,12 @@
 
 use CodeIgniter\Model;
 
+/*Marko Praščević 0108/2017
+
+Klasa KorisnikModel koja predstavlja tabelu Udomi oglasa u bazi
+@version 1.0
+*/
+
 class UdomiModel extends Model
 {
     protected $table      = 'udomi';

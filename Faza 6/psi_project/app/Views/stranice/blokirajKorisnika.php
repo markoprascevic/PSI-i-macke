@@ -1,3 +1,9 @@
+<!----Lazar Smiljković 0125/2017
+
+Stranica za prikaz svih korisnika radi blokiranja od strane admina
+@version 1.0
+---->
+
 <script>
         localStorage.setItem("pocetna",false);
         localStorage.setItem("udomi",false);
@@ -33,7 +39,7 @@
 <?php
     $putanja="'data:image/jpeg;base64,".base64_encode( $slike[8]->slika )."'";
     foreach( $korisnici as $korisnik){
-        echo "<tr><td>Korisnik:</td><td>".$korisnik->username."</td><td>".anchor("Admin/blokiraj/{$korisnik->username}",'<img style=" width:30px" src='.$putanja.'>').'</td>';        
+        echo "<tr><td>Korisnik:</td><td>".$korisnik->username."</td><td>".anchor("Admin/blokiraj/{$korisnik->username}",'<input type="image" onclick="return confirm(\' Da li ste sigurni da zelite da blokirate korisnika? \');"  style=" width:30px" src='.$putanja.'>').'</td>';        
     }
 ?>
 </table>
