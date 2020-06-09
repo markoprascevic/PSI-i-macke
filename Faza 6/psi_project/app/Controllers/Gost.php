@@ -7,7 +7,7 @@ use App\Models\UdomiModel;
 use App\Models\KorisnikModel;
 
 /*Marko Praščević 0108/2017
-      Anja Patnović 0418/2017
+      Anja Pantović 0418/2017
 
 Controller za gosta
 @version 1.0
@@ -166,6 +166,8 @@ class Gost extends BaseController
         $lozinka=$this->request->getVar('lozinka');
         $ponloz=$this->request->getVar('ponloz');
         $email=$this->request->getVar('email');
+        $telefon=$this->request->getVar('telefon');
+        $adresa=$this->request->getVar('adresa');
         
         if (strlen($imeiprezime)>20) 
             $greske['imeiprezime']='<br/>Ime i prezime mora da sadrži najviše 20 slova';
