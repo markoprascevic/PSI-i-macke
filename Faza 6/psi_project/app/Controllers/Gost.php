@@ -47,7 +47,7 @@ class Gost extends BaseController
         
         $slikaModel=new SlikeModel();
         $slike=$slikaModel->findAll();
-        $this->prikaz('Views/stranice/Lost&Found.php', ['slike'=>$slike], ['oglasi'=>$oglasi]);
+        $this->prikaz('Views/stranice/Lost&FoundGost.php', ['slike'=>$slike], ['oglasi'=>$oglasi]);
     }
 	//--------------------------------------------------------------------
 /*
@@ -83,12 +83,12 @@ class Gost extends BaseController
         
         if(empty($niz)){
             
-            $this->prikaz('Views/stranice/Lost&Found.php', ['slike'=>$slike], ['oglasi'=>[]]);
+            $this->prikaz('Views/stranice/Lost&FoundGost.php', ['slike'=>$slike], ['oglasi'=>[]]);
         }
         else{
             $lfModel=new LFModel();
             $oglasi=$lfModel->like('izgpro',$ip)->find($niz);
-            $this->prikaz('Views/stranice/Lost&Found.php', ['slike'=>$slike], ['oglasi'=>$oglasi]);
+            $this->prikaz('Views/stranice/Lost&FoundGost.php', ['slike'=>$slike], ['oglasi'=>$oglasi]);
         }
     }
 /*
@@ -98,6 +98,12 @@ class Gost extends BaseController
         $slikaModel=new SlikeModel();
         $slike=$slikaModel->findAll();
         $this->prikaz('Views/stranice/nemaPristupU.php', ['slike'=>$slike], []);
+    }
+    
+    public function nemaPristupPostaviLF() {
+        $slikaModel=new SlikeModel();
+        $slike=$slikaModel->findAll();
+        $this->prikaz('Views/stranice/nemaPristupPostaviLF.php', ['slike'=>$slike], []);
     }
 /*
  * prikaz stranice "nema pristupa"
